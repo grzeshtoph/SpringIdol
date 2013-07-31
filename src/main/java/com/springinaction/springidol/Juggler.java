@@ -6,10 +6,9 @@ import org.slf4j.LoggerFactory;
 /**
  * Juggler performer.
  */
-public class Juggler implements Performer {
+public class Juggler extends Contestant {
     private static final Logger LOG = LoggerFactory.getLogger(Juggler.class);
     private int beanBags = 3;
-    private String beanName;
 
     public Juggler(int beanBags) {
         this.beanBags = beanBags;
@@ -19,13 +18,7 @@ public class Juggler implements Performer {
     }
 
     @Override
-    public void perform() throws PerformanceException {
-        LOG.info("Performance by '{}'", beanName);
+    protected void doPerformance() throws PerformanceException {
         LOG.info("JUGGLING {} BEANBAGS", beanBags);
-    }
-
-    @Override
-    public void setBeanName(String s) {
-        beanName = s;
     }
 }

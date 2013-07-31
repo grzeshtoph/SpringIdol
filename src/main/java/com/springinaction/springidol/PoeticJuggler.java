@@ -21,8 +21,8 @@ public class PoeticJuggler extends Juggler {
     }
 
     @Override
-    public void perform() throws PerformanceException {
-        super.perform();
+    protected void doPerformance() throws PerformanceException {
+        super.doPerformance();
         LOG.info("While reciting...");
         poem.recite();
     }

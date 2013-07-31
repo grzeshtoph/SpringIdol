@@ -2,7 +2,7 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd"
-       default-init-method="init" >
+       default-init-method="init">
     <bean id="duke" class="com.springinaction.springidol.Juggler">
         <constructor-arg value="15"/>
     </bean>
@@ -11,6 +11,21 @@
         <constructor-arg value="15"/>
         <constructor-arg ref="sonnet29"/>
     </bean>
+
+    <bean id="kenny" class="com.springinaction.springidol.Instrumentalist">
+        <property name="song" value="Jingle Bells"/>
+        <property name="age" value="37"/>
+        <property name="instrument" ref="saxophone"/>
+    </bean>
+
+    <bean id="kenny2" class="com.springinaction.springidol.Instrumentalist">
+        <property name="song" value="LaLaLa"/>
+        <property name="instrument" ref="piano"/>
+    </bean>
+
+    <bean id="saxophone" class="com.springinaction.springidol.Saxophone"/>
+
+    <bean id="piano" class="com.springinaction.springidol.Piano"/>
 
     <bean id="sonnet29" class="com.springinaction.springidol.Sonnet29"/>
 

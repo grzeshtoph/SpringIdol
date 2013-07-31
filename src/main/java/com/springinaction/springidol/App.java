@@ -25,5 +25,11 @@ public class App {
 
         performer = (Performer) ctx.getBean("poeticDuke");
         performer.perform();
+
+        performer = (Performer) ctx.getBean("kenny");
+        performer.perform();
+
+        performer = (Performer) ctx.getBean("kenny2");
+        performer.perform();
     }
 }
