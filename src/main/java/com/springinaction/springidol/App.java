@@ -11,8 +11,19 @@ public class App {
     public static void main(String... args) throws PerformanceException {
         LOG.debug("Hello World!");
 
+        new App().execute();
+    }
+
+    private void execute() throws PerformanceException {
         ApplicationContext ctx = new ClassPathXmlApplicationContext("spring-idol.xml");
+
+        Ticket ticket = (Ticket) ctx.getBean("ticket");
+        ticket = (Ticket) ctx.getBean("ticket");
+
         Performer performer = (Performer) ctx.getBean("duke");
+        performer.perform();
+
+        performer = (Performer) ctx.getBean("poeticDuke");
         performer.perform();
     }
 }
