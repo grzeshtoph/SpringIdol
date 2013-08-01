@@ -14,6 +14,10 @@ public class Instrumentalist extends Contestant {
     private int age;
     private Instrument instrument;
 
+    public Instrumentalist(String email) {
+        super(email);
+    }
+
     @Override
     protected void doPerformance() throws PerformanceException {
         if (age > 0)
@@ -35,19 +39,19 @@ public class Instrumentalist extends Contestant {
         return song;
     }
 
-    public void setInstrument(Instrument instrument) {
-        this.instrument = instrument;
+    public int getAge() {
+        return age;
     }
 
     public void setAge(int age) {
         this.age = age;
     }
 
-    public int getAge() {
-        return age;
-    }
-
     public Instrument getInstrument() {
         return instrument;
+    }
+
+    public void setInstrument(Instrument instrument) {
+        this.instrument = instrument;
     }
 }

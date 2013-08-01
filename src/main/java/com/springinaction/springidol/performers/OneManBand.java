@@ -15,6 +15,10 @@ public class OneManBand extends Contestant {
     private static final Logger LOG = LoggerFactory.getLogger(OneManBand.class);
     private Map<String, Instrument> instruments;
 
+    public OneManBand(String email) {
+        super(email);
+    }
+
     public void setInstruments(Map<String, Instrument> instruments) {
         this.instruments = instruments;
     }

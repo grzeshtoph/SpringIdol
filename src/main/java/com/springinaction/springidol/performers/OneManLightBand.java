@@ -16,6 +16,10 @@ public class OneManLightBand extends Contestant {
     private static final Logger LOG = LoggerFactory.getLogger(OneManLightBand.class);
     private Map<String, String> instrumentSounds;
 
+    public OneManLightBand(String email) {
+        super(email);
+    }
+
     public void setInstrumentSounds(Map<String, String> instrumentSounds) {
         this.instrumentSounds = instrumentSounds;
     }

@@ -12,13 +12,13 @@ public class PoeticJuggler extends Juggler {
     private static final Logger LOG = LoggerFactory.getLogger(PoeticJuggler.class);
     private final Poem poem;
 
-    public PoeticJuggler(Poem poem) {
-        super();
+    public PoeticJuggler(String email, Poem poem) {
+        super(email);
         this.poem = poem;
     }
 
-    public PoeticJuggler(int beanBags, Poem poem) {
-        super(beanBags);
+    public PoeticJuggler(String email, int beanBags, Poem poem) {
+        super(email, beanBags);
         this.poem = poem;
     }
 

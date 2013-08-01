@@ -10,11 +10,17 @@ import org.slf4j.LoggerFactory;
 public abstract class Contestant implements Performer {
     private static final Logger LOG = LoggerFactory.getLogger(Contestant.class);
     private String performerName;
+    private String email;
+
+    protected Contestant(String email) {
+        this.email = email;
+    }
 
     @Override
     public final void perform() throws PerformanceException {
         LOG.info("-----");
         LOG.info("Performance by '{}'", performerName);
+        LOG.info("Email: {}", email);
         doPerformance();
     }
 

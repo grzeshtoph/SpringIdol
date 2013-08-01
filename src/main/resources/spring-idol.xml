@@ -5,21 +5,29 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd"
        default-init-method="init">
     <bean id="duke" class="com.springinaction.springidol.performers.Juggler">
-        <constructor-arg value="15"/>
+        <constructor-arg name="email" value="duke@gmail.com"/>
+        <constructor-arg name="beanBags" value="15"/>
     </bean>
 
     <bean id="poeticDuke" class="com.springinaction.springidol.performers.PoeticJuggler">
-        <constructor-arg value="#{4 * 5}"/>
-        <constructor-arg value="#{sonnet29}"/>
+        <constructor-arg name="email" value="poeticDuke@gmail.com"/>
+        <constructor-arg name="beanBags" value="#{4 * 5}"/>
+        <constructor-arg name="poem" value="#{sonnet29}"/>
     </bean>
 
     <bean id="kenny" class="com.springinaction.springidol.performers.Instrumentalist"
-          p:song="#{songSelector.selectSong()?.toUpperCase()}" p:age="37" p:instrument="#{saxophone}"/>
+          p:song="#{songSelector.selectSong()?.toUpperCase() == 'JINGLE BELLS' ? 'not gonna sing jingle bells!' : 'my song'}"
+          p:age="37" p:instrument="#{saxophone}">
+        <constructor-arg name="email" value="kenny@gmail.com"/>
+    </bean>
 
     <bean id="kenny2" class="com.springinaction.springidol.performers.Instrumentalist"
-          p:song="#{songSelector.selectSong()?.toUpperCase()}" p:instrument="#{piano}"/>
+          p:song="#{songSelector.selectSong()?.toUpperCase()}" p:instrument="#{piano}">
+        <constructor-arg name="email" value="kenny2@gmail.com"/>
+    </bean>
 
     <bean id="hank" class="com.springinaction.springidol.performers.OneManBand">
+        <constructor-arg name="email" value="hank@gmail.com"/>
         <property name="instruments">
             <map>
                 <entry key="GUITAR" value="#{guitar}"/>
@@ -30,6 +38,7 @@
     </bean>
 
     <bean id="hank2" class="com.springinaction.springidol.performers.OneManLightBand">
+        <constructor-arg name="email" value="hank2@gmail.com"/>
         <property name="instrumentSounds">
             <map>
                 <entry key="GUITAR"
@@ -43,6 +52,7 @@
     </bean>
 
     <bean id="hank3" class="com.springinaction.springidol.performers.OneManLighterBand">
+        <constructor-arg name="email" value="hank3@gmail.com"/>
         <property name="instrumentSounds">
             <props>
                 <prop key="GUITAR">
@@ -66,7 +76,9 @@
 
     <bean id="carl" class="com.springinaction.springidol.performers.Instrumentalist"
           p:song="#{songSelector.selectSong()?.toUpperCase()}" p:age="#{kenny.age}"
-          p:instrument="#{kenny.instrument}"/>
+          p:instrument="#{kenny.instrument}">
+        <constructor-arg name="email" value="carl@gmail.com"/>
+    </bean>
 
     <bean id="sonnet29" class="com.springinaction.springidol.poems.Sonnet29"/>
 

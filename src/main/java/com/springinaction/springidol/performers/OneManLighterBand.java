@@ -15,6 +15,10 @@ public class OneManLighterBand extends Contestant {
     private static final Logger LOG = LoggerFactory.getLogger(OneManLighterBand.class);
     private Properties instrumentSounds;
 
+    public OneManLighterBand(String email) {
+        super(email);
+    }
+
     public void setInstrumentSounds(Properties instrumentSounds) {
         this.instrumentSounds = instrumentSounds;
     }
