@@ -1,5 +1,7 @@
-package com.springinaction.springidol;
+package com.springinaction.springidol.performers;
 
+import com.springinaction.springidol.PerformanceException;
+import com.springinaction.springidol.poems.Poem;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

@@ -1,5 +1,6 @@
 package com.springinaction.springidol;
 
+import com.springinaction.springidol.performers.Performer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
@@ -30,6 +31,12 @@ public class App {
         performer.perform();
 
         performer = (Performer) ctx.getBean("kenny2");
+        performer.perform();
+
+        performer = (Performer) ctx.getBean("hank");
+        performer.perform();
+
+        performer = (Performer) ctx.getBean("hank2");
         performer.perform();
     }
 }

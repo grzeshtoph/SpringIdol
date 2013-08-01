@@ -1,5 +1,6 @@
-package com.springinaction.springidol;
+package com.springinaction.springidol.performers;
 
+import com.springinaction.springidol.PerformanceException;
 import org.springframework.beans.factory.BeanNameAware;
 
 /**
@@ -9,7 +10,7 @@ public interface Performer extends BeanNameAware {
     /**
      * Performs the trick.
      *
-     * @throws PerformanceException sole checked exception
+     * @throws com.springinaction.springidol.PerformanceException sole checked exception
      */
     void perform() throws PerformanceException;
 }
