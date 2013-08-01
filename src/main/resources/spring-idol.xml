@@ -9,49 +9,85 @@
     </bean>
 
     <bean id="poeticDuke" class="com.springinaction.springidol.performers.PoeticJuggler">
-        <constructor-arg value="15"/>
-        <constructor-arg>
-            <bean class="com.springinaction.springidol.poems.Sonnet29"/>
-        </constructor-arg>
+        <constructor-arg value="#{4 * 5}"/>
+        <constructor-arg value="#{sonnet29}"/>
     </bean>
 
     <bean id="kenny" class="com.springinaction.springidol.performers.Instrumentalist"
-          p:song="Jingle Bells" p:age="37" p:instrument-ref="saxophone"/>
+          p:song="#{songSelector.selectSong()?.toUpperCase()}" p:age="37" p:instrument="#{saxophone}"/>
+
+    <bean id="kenny2" class="com.springinaction.springidol.performers.Instrumentalist"
+          p:song="#{songSelector.selectSong()?.toUpperCase()}" p:instrument="#{piano}"/>
 
     <bean id="hank" class="com.springinaction.springidol.performers.OneManBand">
         <property name="instruments">
             <map>
-                <entry key="GUITAR" value-ref="guitar"/>
-                <entry key="CYMBAL" value-ref="cymbal"/>
-                <entry key="HARMONICA" value-ref="harmonica"/>
+                <entry key="GUITAR" value="#{guitar}"/>
+                <entry key="CYMBAL" value="#{cymbal}"/>
+                <entry key="HARMONICA" value="#{harmonica}"/>
             </map>
         </property>
     </bean>
 
     <bean id="hank2" class="com.springinaction.springidol.performers.OneManLightBand">
-        <property name="instruments">
+        <property name="instrumentSounds">
+            <map>
+                <entry key="GUITAR"
+                       value="#{T(com.springinaction.springidol.instruments.InstrumentSound).GUITAR.getSound()}"/>
+                <entry key="CYMBAL"
+                       value="#{T(com.springinaction.springidol.instruments.InstrumentSound).CYMBAL.getSound()}"/>
+                <entry key="HARMONICA"
+                       value="#{T(com.springinaction.springidol.instruments.InstrumentSound).HARMONICA.getSound()}"/>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="hank3" class="com.springinaction.springidol.performers.OneManLighterBand">
+        <property name="instrumentSounds">
             <props>
-                <prop key="GUITAR">STRUM STRUM STRUM</prop>
-                <prop key="CYMBAL">CRASH CRASH CRASH</prop>
-                <prop key="HARMONICA">HUM HUM HUM</prop>
+                <prop key="GUITAR">
+                    #{T(com.springinaction.springidol.instruments.InstrumentSound).GUITAR.getSound()}
+                </prop>
+                <prop key="CYMBAL">
+                    #{T(com.springinaction.springidol.instruments.InstrumentSound).CYMBAL.getSound()}
+                </prop>
+                <prop key="HARMONICA">
+                    #{T(com.springinaction.springidol.instruments.InstrumentSound).HARMONICA.getSound()}
+                </prop>
+                <prop key="SAXOPHONE">
+                    #{T(com.springinaction.springidol.instruments.InstrumentSound).SAXOPHONE.getSound()}
+                </prop>
+                <prop key="PIANO">
+                    #{T(com.springinaction.springidol.instruments.InstrumentSound).PIANO.getSound()}
+                </prop>
             </props>
         </property>
     </bean>
 
-    <bean id="kenny2" class="com.springinaction.springidol.performers.Instrumentalist"
-          p:song="LaLaLa" p:instrument-ref="piano"/>
+    <bean id="carl" class="com.springinaction.springidol.performers.Instrumentalist"
+          p:song="#{songSelector.selectSong()?.toUpperCase()}" p:age="#{kenny.age}"
+          p:instrument="#{kenny.instrument}"/>
 
-    <bean id="saxophone" class="com.springinaction.springidol.instruments.Saxophone"/>
+    <bean id="sonnet29" class="com.springinaction.springidol.poems.Sonnet29"/>
 
-    <bean id="piano" class="com.springinaction.springidol.instruments.Piano"/>
+    <bean id="saxophone" class="com.springinaction.springidol.instruments.ContestInstrument"
+          p:instrumentSound="#{T(com.springinaction.springidol.instruments.InstrumentSound).SAXOPHONE}"/>
 
-    <bean id="cymbal" class="com.springinaction.springidol.instruments.Cymbal"/>
+    <bean id="piano" class="com.springinaction.springidol.instruments.ContestInstrument"
+          p:instrumentSound="#{T(com.springinaction.springidol.instruments.InstrumentSound).PIANO}"/>
 
-    <bean id="guitar" class="com.springinaction.springidol.instruments.Guitar"/>
+    <bean id="cymbal" class="com.springinaction.springidol.instruments.ContestInstrument"
+          p:instrumentSound="#{T(com.springinaction.springidol.instruments.InstrumentSound).CYMBAL}"/>
 
-    <bean id="harmonica" class="com.springinaction.springidol.instruments.Harmonica"/>
+    <bean id="guitar" class="com.springinaction.springidol.instruments.ContestInstrument"
+          p:instrumentSound="#{T(com.springinaction.springidol.instruments.InstrumentSound).GUITAR}"/>
+
+    <bean id="harmonica" class="com.springinaction.springidol.instruments.ContestInstrument"
+          p:instrumentSound="#{T(com.springinaction.springidol.instruments.InstrumentSound).HARMONICA}"/>
 
     <bean id="theStage" class="com.springinaction.springidol.Stage" factory-method="getInstance"/>
+
+    <bean id="songSelector" class="com.springinaction.springidol.SongSelector" factory-method="getInstance"/>
 
     <bean id="ticket" class="com.springinaction.springidol.Ticket" scope="prototype"/>
 </beans>

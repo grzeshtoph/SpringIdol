@@ -13,6 +13,7 @@ public abstract class Contestant implements Performer {
 
     @Override
     public final void perform() throws PerformanceException {
+        LOG.info("-----");
         LOG.info("Performance by '{}'", performerName);
         doPerformance();
     }

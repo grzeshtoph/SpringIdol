@@ -7,7 +7,7 @@ import org.springframework.beans.factory.BeanNameAware;
 /**
  * A singleton stage for performers.
  */
-public class Stage implements BeanNameAware {
+public final class Stage implements BeanNameAware {
     private static final Logger LOG = LoggerFactory.getLogger(Stage.class);
     private String stageName;
 

@@ -42,4 +42,12 @@ public class Instrumentalist extends Contestant {
     public void setAge(int age) {
         this.age = age;
     }
+
+    public int getAge() {
+        return age;
+    }
+
+    public Instrument getInstrument() {
+        return instrument;
+    }
 }

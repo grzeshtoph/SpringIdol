@@ -14,18 +14,16 @@ import java.util.Properties;
  */
 public class OneManLightBand extends Contestant {
     private static final Logger LOG = LoggerFactory.getLogger(OneManLightBand.class);
-    private Properties instruments;
+    private Map<String, String> instrumentSounds;
 
-    public void setInstruments(Properties instruments) {
-        this.instruments = instruments;
+    public void setInstrumentSounds(Map<String, String> instrumentSounds) {
+        this.instrumentSounds = instrumentSounds;
     }
 
     @Override
     protected void doPerformance() throws PerformanceException {
-        Enumeration<String> instrumentNames = (Enumeration<String>) instruments.propertyNames();
-        while (instrumentNames.hasMoreElements()) {
-            String instrumentName = instrumentNames.nextElement();
-            LOG.info(instrumentName + ": " + instruments.getProperty(instrumentName));
+        for (Map.Entry<String, String> entry : instrumentSounds.entrySet()) {
+            LOG.info("{}: {}", entry.getKey(), entry.getValue());
         }
     }
 }
