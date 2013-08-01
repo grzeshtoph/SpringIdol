@@ -3,6 +3,9 @@ package com.springinaction.springidol.instruments;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * General implementation of contest instrument.
+ */
 public class ContestInstrument implements Instrument {
     private static final Logger LOG = LoggerFactory.getLogger(ContestInstrument.class);
     private String instrumentName;
