@@ -6,14 +6,14 @@ import org.slf4j.LoggerFactory;
 import java.util.Random;
 
 public final class SongSelector {
-    private static Logger LOG = LoggerFactory.getLogger(SongSelector.class);
-    private String[] songs = new String[]{
+    private static final Logger LOG = LoggerFactory.getLogger(SongSelector.class);
+    private final String[] songs = new String[]{
             "Jingle Bells",
             "LaLaLa",
             "Wherever I May Roam",
             "Abcdefg"
     };
-    private Random randomizer = new Random();
+    private final Random randomizer = new Random();
 
     private SongSelector() {
     }

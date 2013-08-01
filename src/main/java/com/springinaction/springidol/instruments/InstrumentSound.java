@@ -9,7 +9,7 @@ public enum InstrumentSound {
     HARMONICA("HUM HUM HUM"),
     PIANO("PLINK PLINK PLINK"),
     SAXOPHONE("TOOT TOOT TOOT");
-    private String sound;
+    private final String sound;
 
     private InstrumentSound(String sound) {
         this.sound = sound;

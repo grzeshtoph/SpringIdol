@@ -10,7 +10,7 @@ import org.slf4j.LoggerFactory;
  */
 public class PoeticJuggler extends Juggler {
     private static final Logger LOG = LoggerFactory.getLogger(PoeticJuggler.class);
-    private Poem poem;
+    private final Poem poem;
 
     public PoeticJuggler(Poem poem) {
         super();

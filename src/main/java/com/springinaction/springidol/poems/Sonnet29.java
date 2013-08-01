@@ -8,8 +8,7 @@ import org.slf4j.LoggerFactory;
  */
 public class Sonnet29 implements Poem {
     private static final Logger LOG = LoggerFactory.getLogger(Sonnet29.class);
-
-    private static String[] LINES = {
+    private static final String[] LINES = {
             "When,in disgrace with fortune and men's eyes,",
             "I all alone beweep my outcast state",
             "And trouble deaf heaven with my bootless cries",
@@ -28,7 +27,7 @@ public class Sonnet29 implements Poem {
     @Override
     public void recite() {
         for (String line : LINES) {
-             LOG.info(line);
+            LOG.info(line);
         }
     }
 }
