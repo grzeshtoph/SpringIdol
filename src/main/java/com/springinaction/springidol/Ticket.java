@@ -7,8 +7,15 @@ public class Ticket {
     private static final Logger LOG = LoggerFactory.getLogger(Ticket.class);
     private static int ticketsCounter;
     private final int ticketNo = ++ticketsCounter;
+    private boolean extraPrice;
+
+    public Ticket(boolean extraPrice) {
+        this.extraPrice = extraPrice;
+    }
 
     public void init() {
         LOG.debug("Ticket number {} created", ticketNo);
+        if (extraPrice)
+            LOG.debug("Ticker has extra price, as the venue is special");
     }
 }

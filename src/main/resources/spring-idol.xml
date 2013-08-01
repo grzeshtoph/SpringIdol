@@ -18,16 +18,16 @@
     <bean id="kenny" class="com.springinaction.springidol.performers.Instrumentalist"
           p:song="#{songSelector.selectSong()?.toUpperCase() == 'JINGLE BELLS' ? 'not gonna sing jingle bells!' : 'my song'}"
           p:age="37" p:instrument="#{saxophone}">
-        <constructor-arg name="email" value="kenny@gmail.com"/>
+        <constructor-arg value="kenny@gmail.com"/>
     </bean>
 
     <bean id="kenny2" class="com.springinaction.springidol.performers.Instrumentalist"
           p:song="#{songSelector.selectSong()?.toUpperCase()}" p:instrument="#{piano}">
-        <constructor-arg name="email" value="kenny2@gmail.com"/>
+        <constructor-arg value="kenny2@gmail.com"/>
     </bean>
 
     <bean id="hank" class="com.springinaction.springidol.performers.OneManBand">
-        <constructor-arg name="email" value="hank@gmail.com"/>
+        <constructor-arg value="hank@gmail.com"/>
         <property name="instruments">
             <map>
                 <entry key="GUITAR" value="#{guitar}"/>
@@ -38,7 +38,7 @@
     </bean>
 
     <bean id="hank2" class="com.springinaction.springidol.performers.OneManLightBand">
-        <constructor-arg name="email" value="hank2@gmail.com"/>
+        <constructor-arg value="hank2@gmail.com"/>
         <property name="instrumentSounds">
             <map>
                 <entry key="GUITAR"
@@ -52,7 +52,7 @@
     </bean>
 
     <bean id="hank3" class="com.springinaction.springidol.performers.OneManLighterBand">
-        <constructor-arg name="email" value="hank3@gmail.com"/>
+        <constructor-arg value="hank3@gmail.com"/>
         <property name="instrumentSounds">
             <props>
                 <prop key="GUITAR">
@@ -77,7 +77,7 @@
     <bean id="carl" class="com.springinaction.springidol.performers.Instrumentalist"
           p:song="#{songSelector.selectSong()?.toUpperCase()}" p:age="#{kenny.age}"
           p:instrument="#{kenny.instrument}">
-        <constructor-arg name="email" value="carl@gmail.com"/>
+        <constructor-arg value="carl@gmail.com"/>
     </bean>
 
     <bean id="sonnet29" class="com.springinaction.springidol.poems.Sonnet29"/>
@@ -97,9 +97,12 @@
     <bean id="harmonica" class="com.springinaction.springidol.instruments.ContestInstrument"
           p:instrumentSound="#{T(com.springinaction.springidol.instruments.InstrumentSound).HARMONICA}"/>
 
-    <bean id="theStage" class="com.springinaction.springidol.Stage" factory-method="getInstance"/>
+    <bean id="theStage" class="com.springinaction.springidol.Stage" factory-method="getInstance"
+          p:stageName="Carnegie Hall USA Special"/>
 
     <bean id="songSelector" class="com.springinaction.springidol.SongSelector" factory-method="getInstance"/>
 
-    <bean id="ticket" class="com.springinaction.springidol.Ticket" scope="prototype"/>
+    <bean id="ticket" class="com.springinaction.springidol.Ticket" scope="prototype">
+        <constructor-arg value="#{theStage.stageName matches '.*USA.*'}"/>
+    </bean>
 </beans>
