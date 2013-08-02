@@ -42,6 +42,9 @@ public class App {
         performer = (Performer) ctx.getBean("hank3");
         performer.perform();
 
+        performer = (Performer) ctx.getBean("hank4");
+        performer.perform();
+
         performer = (Performer) ctx.getBean("carl");
         performer.perform();
     }
