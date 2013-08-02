@@ -1,5 +1,6 @@
 package com.springinaction.springidol;
 
+import com.google.common.collect.ImmutableList;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -7,12 +8,12 @@ import java.util.Random;
 
 public final class SongSelector {
     private static final Logger LOG = LoggerFactory.getLogger(SongSelector.class);
-    private final String[] songs = new String[]{
+    private final ImmutableList<String> songs = ImmutableList.of(
             "Jingle Bells",
             "LaLaLa",
             "Wherever I May Roam",
             "Abcdefg"
-    };
+    );
     private final Random randomizer = new Random();
 
     private SongSelector() {
@@ -23,11 +24,12 @@ public final class SongSelector {
     }
 
     public String selectSong() {
-        int songIx = randomizer.nextInt(songs.length);
+        int songIx = randomizer.nextInt(songs.size());
+        String selectedSong = songs.get(songIx);
 
-        LOG.debug("Song number {} selected: {}", songIx, songs[songIx]);
+        LOG.debug("Song number {} selected: {}", songIx, selectedSong);
 
-        return songs[songIx];
+        return selectedSong;
     }
 
     public void init() {

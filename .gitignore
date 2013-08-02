@@ -1,2 +1,3 @@
-SpringIdol.iml
+*.iml
 .idea/
+target/
