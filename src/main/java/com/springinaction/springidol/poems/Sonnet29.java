@@ -1,5 +1,8 @@
 package com.springinaction.springidol.poems;
 
+import com.google.common.base.Function;
+import com.google.common.collect.ImmutableList;
+import com.google.common.collect.Iterables;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -8,7 +11,7 @@ import org.slf4j.LoggerFactory;
  */
 public class Sonnet29 implements Poem {
     private static final Logger LOG = LoggerFactory.getLogger(Sonnet29.class);
-    private static final String[] LINES = {
+    private static final ImmutableList<String> LINES = ImmutableList.of(
             "When,in disgrace with fortune and men's eyes,",
             "I all alone beweep my outcast state",
             "And trouble deaf heaven with my bootless cries",
@@ -22,7 +25,7 @@ public class Sonnet29 implements Poem {
             "Like to the lark at break of day arising",
             "From sullen earth, sings hymns at heaven's gate;",
             "For thy sweet love remember'd such wealth brings",
-            "That then I scorn to change my state with kings."};
+            "That then I scorn to change my state with kings.");
 
     @Override
     public void recite() {

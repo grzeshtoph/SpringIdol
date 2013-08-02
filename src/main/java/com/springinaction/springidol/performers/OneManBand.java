@@ -25,6 +25,7 @@ public class OneManBand extends Contestant {
 
     @Override
     protected void doPerformance() throws PerformanceException {
+
         for (Map.Entry<String, Instrument> entry : instruments.entrySet()) {
             LOG.info(entry.getKey() + ": ");
             entry.getValue().play();
