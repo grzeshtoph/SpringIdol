@@ -22,6 +22,14 @@ public class Juggler extends Contestant {
         super(email);
     }
 
+    public int getBeanBags() {
+        return beanBags;
+    }
+
+    public void setBeanBags(int beanBags) {
+        this.beanBags = beanBags;
+    }
+
     @Override
     protected void doPerformance() throws PerformanceException {
         LOG.info("JUGGLING {} BEANBAGS", beanBags);
