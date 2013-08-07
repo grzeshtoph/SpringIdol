@@ -2,7 +2,6 @@ package com.springinaction.springidol.performers;
 
 import com.google.common.base.Objects;
 import com.springinaction.springidol.PerformanceException;
-import com.sun.org.apache.xpath.internal.operations.Equals;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
