@@ -10,8 +10,6 @@ public class App {
     private static final Logger LOG = LoggerFactory.getLogger(App.class);
 
     public static void main(String... args) throws PerformanceException {
-        LOG.debug("Hello World!");
-
         new App().execute();
     }
 
