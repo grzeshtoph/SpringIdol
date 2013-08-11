@@ -10,7 +10,7 @@ import java.util.Properties;
 /**
  * one man light band that's based on properties, not on the intruments references.
  */
-public class OneManLighterBand extends Contestant {
+public class OneManLighterBand extends AbstractContestant {
     private static final Logger LOG = LoggerFactory.getLogger(OneManLighterBand.class);
     private Properties instrumentSounds;
 

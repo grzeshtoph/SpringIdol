@@ -1,18 +1,15 @@
 package com.springinaction.springidol.performers;
 
 import com.springinaction.springidol.PerformanceException;
-import com.springinaction.springidol.instruments.Instrument;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.Enumeration;
 import java.util.Map;
-import java.util.Properties;
 
 /**
  * one man light band that's based on properties, not on the intruments references.
  */
-public class OneManLightBand extends Contestant {
+public class OneManLightBand extends AbstractContestant {
     private static final Logger LOG = LoggerFactory.getLogger(OneManLightBand.class);
     private Map<String, String> instrumentSounds;
 

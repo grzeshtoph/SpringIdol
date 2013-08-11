@@ -7,7 +7,7 @@ import org.slf4j.LoggerFactory;
 /**
  * The lightests one man band. Knows only sounds he's playing.
  */
-public class OneManLightestBand extends Contestant {
+public class OneManLightestBand extends AbstractContestant {
     private static final Logger LOG = LoggerFactory.getLogger(OneManLightestBand.class);
     private String[] sounds;
 

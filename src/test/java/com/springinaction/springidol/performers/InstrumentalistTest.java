@@ -101,11 +101,17 @@ public class InstrumentalistTest {
         assertTrue(kenny2.equals(kenny2));
 
         Instrumentalist kenny2Clone = new Instrumentalist("kenny2@gmail.com");
+        assertFalse(kenny2.equals(kenny2Clone));
         kenny2Clone.setBeanName("kenny2");
+        assertFalse(kenny2.equals(kenny2Clone));
         kenny2Clone.setInstrument(piano);
+        assertFalse(kenny2.equals(kenny2Clone));
         kenny2Clone.setSong(kenny2.getSong());
-
         assertTrue(kenny2.equals(kenny2Clone));
+        kenny2Clone.setPerformerName("kenny3");
+        assertFalse(kenny2.equals(kenny2Clone));
+        kenny2Clone.setEmail("kenny3@gmail.com");
+        assertFalse(kenny2.equals(kenny2Clone));
     }
 
     private String replaceSong(String toStringValue) {

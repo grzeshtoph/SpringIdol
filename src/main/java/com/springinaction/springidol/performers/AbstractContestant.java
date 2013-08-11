@@ -8,12 +8,12 @@ import org.slf4j.LoggerFactory;
 /**
  * An abstract contestant that just has information about a name and displays it.
  */
-public abstract class Contestant implements Performer {
-    private static final Logger LOG = LoggerFactory.getLogger(Contestant.class);
+public abstract class AbstractContestant implements Performer {
+    private static final Logger LOG = LoggerFactory.getLogger(AbstractContestant.class);
     private String performerName;
     private String email;
 
-    protected Contestant(String email) {
+    protected AbstractContestant(String email) {
         this.email = email;
     }
 
@@ -55,10 +55,10 @@ public abstract class Contestant implements Performer {
 
     @Override
     public boolean equals(Object obj) {
-        if (obj != null && obj instanceof Contestant) {
+        if (obj != null && obj instanceof AbstractContestant) {
             if (this == obj) return true;
 
-            Contestant that = (Contestant) obj;
+            AbstractContestant that = (AbstractContestant) obj;
 
             return Objects.equal(performerName, that.performerName)
                     && Objects.equal(email, that.email);

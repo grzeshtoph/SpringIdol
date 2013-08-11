@@ -18,4 +18,8 @@ public class Ticket {
         if (extraPrice)
             LOG.debug("Ticker has extra price, as the venue is special");
     }
+
+    int getTicketNo() {
+        return ticketNo;
+    }
 }

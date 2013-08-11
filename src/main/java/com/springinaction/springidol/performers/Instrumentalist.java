@@ -9,7 +9,7 @@ import org.slf4j.LoggerFactory;
 /**
  * Musical performer
  */
-public class Instrumentalist extends Contestant {
+public class Instrumentalist extends AbstractContestant {
     private static final Logger LOG = LoggerFactory.getLogger(Instrumentalist.class);
     private String song;
     private int age;

@@ -8,7 +8,7 @@ import org.slf4j.LoggerFactory;
 /**
  * Juggler performer.
  */
-public class Juggler extends Contestant {
+public class Juggler extends AbstractContestant {
     private static final Logger LOG = LoggerFactory.getLogger(Juggler.class);
     private int beanBags = 3;
 

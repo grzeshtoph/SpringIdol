@@ -11,7 +11,7 @@ import java.util.Map;
 /**
  * One man band that can play on multiple instruments.
  */
-public class OneManBand extends Contestant {
+public class OneManBand extends AbstractContestant {
     private static final Logger LOG = LoggerFactory.getLogger(OneManBand.class);
     private Map<String, Instrument> instruments;
 
