@@ -5,8 +5,7 @@ import org.slf4j.LoggerFactory;
 
 public class Ticket {
     private static final Logger LOG = LoggerFactory.getLogger(Ticket.class);
-    private static int ticketsCounter;
-    private final int ticketNo = ++ticketsCounter;
+    private int ticketNo;
     private boolean extraPrice;
 
     public Ticket(boolean extraPrice) {
@@ -21,5 +20,9 @@ public class Ticket {
 
     int getTicketNo() {
         return ticketNo;
+    }
+
+    public void setTicketNo(int ticketNo) {
+        this.ticketNo = ticketNo;
     }
 }

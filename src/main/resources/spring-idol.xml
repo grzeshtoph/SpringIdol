@@ -108,7 +108,19 @@
 
     <bean id="songSelector" class="com.springinaction.springidol.SongSelector" factory-method="getInstance"/>
 
-    <bean id="ticket" class="com.springinaction.springidol.Ticket" scope="prototype">
+    <bean id="ticketExtra" class="com.springinaction.springidol.Ticket" scope="prototype">
         <constructor-arg value="#{theStage.stageName matches '.*USA.*'}"/>
+        <property name="ticketNo">
+            <bean factory-bean="ticketCounter" factory-method="getNextNumber"/>
+        </property>
     </bean>
+
+    <bean id="ticketNormal" class="com.springinaction.springidol.Ticket" scope="prototype">
+        <constructor-arg value="#{theStage.stageName matches '.*PKiN.*'}"/>
+        <property name="ticketNo">
+            <bean factory-bean="ticketCounter" factory-method="getNextNumber"/>
+        </property>
+    </bean>
+
+    <bean id="ticketCounter" class="com.springinaction.springidol.TicketCounter"/>
 </beans>

@@ -16,8 +16,8 @@ public class App {
     private void execute() throws PerformanceException {
         ApplicationContext ctx = new ClassPathXmlApplicationContext("spring-idol.xml");
 
-        Ticket ticket = (Ticket) ctx.getBean("ticket");
-        ticket = (Ticket) ctx.getBean("ticket");
+        Ticket ticket = (Ticket) ctx.getBean("ticketExtra");
+        ticket = (Ticket) ctx.getBean("ticketExtra");
 
         Performer performer = (Performer) ctx.getBean("duke");
         performer.perform();

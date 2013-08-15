@@ -10,6 +10,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import static junit.framework.Assert.assertEquals;
 import static junit.framework.Assert.assertFalse;
 import static junit.framework.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Test case for the {@link Ticket}.
@@ -18,20 +19,21 @@ import static junit.framework.Assert.assertNotNull;
 @RunWith(SpringJUnit4ClassRunner.class)
 public class TicketTest {
     @Autowired
-    Ticket ticket1;
+    Ticket ticketExtra;
     @Autowired
-    Ticket ticket2;
+    Ticket ticketNormal;
+    @Autowired
+    TicketCounter ticketCounter;
 
     @Test
     public void ticketTest() {
-        assertNotNull(ticket1);
-        assertNotNull(ticket2);
-        assertFalse(ticket1 == ticket2);
-        assertEquals(1, ticket1.getTicketNo());
-        assertEquals(2, ticket2.getTicketNo());
+        assertNotNull(ticketExtra);
+        assertNotNull(ticketNormal);
+        assertFalse(ticketExtra == ticketNormal);
+        assertTrue(ticketExtra.getTicketNo() > 0);
+        assertTrue(ticketNormal.getTicketNo() > 0);
         Ticket ticket3 = new Ticket(false);
-        assertEquals(3, ticket3.getTicketNo());
-        ticket3.init();
+        ticket3.setTicketNo(ticketCounter.getNextNumber());
+        assertTrue(ticket3.getTicketNo() > 0);
     }
-
 }
