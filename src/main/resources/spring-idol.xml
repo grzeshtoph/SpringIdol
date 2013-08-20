@@ -86,7 +86,7 @@
         <constructor-arg value="carl@gmail.com"/>
     </bean>
 
-    <bean id="sonnet29" class="com.springinaction.springidol.poems.Sonnet29"/>
+    <bean id="sonnet29" class="com.springinaction.springidol.artifacts.Sonnet29"/>
 
     <bean id="saxophone" class="com.springinaction.springidol.instruments.ContestInstrument"
           p:instrumentSound="#{instrumentSounds['SAXOPHONE']}"/>
